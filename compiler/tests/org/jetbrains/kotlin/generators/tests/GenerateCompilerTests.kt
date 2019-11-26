@@ -425,6 +425,10 @@ fun main(args: Array<String>) {
             model("compileKotlinAgainstKotlin", targetBackend = TargetBackend.JVM_IR)
         }
 
+        testClass<AbstractCompileKotlinAgainstKlibTest> {
+            model("codegen/boxKlib", targetBackend = TargetBackend.JVM_IR)
+        }
+
         testClass<AbstractIrCheckLocalVariablesTableTest> {
             model("checkLocalVariablesTable", targetBackend = TargetBackend.JVM_IR)
         }

@@ -289,6 +289,13 @@ class K2JVMCompilerArguments : CommonCompilerArguments() {
     )
     var allowNoSourceFiles: Boolean by FreezableVar(false)
 
+    @Argument(
+        value = "-Xklib",
+        valueDescription = "<path>",
+        description = "Paths to cross-platform libraries in .klib format"
+    )
+    val klibLibraries: String? by NullableStringFreezableVar(null)
+
     override fun configureAnalysisFlags(collector: MessageCollector): MutableMap<AnalysisFlag<*>, Any> {
         val result = super.configureAnalysisFlags(collector)
         result[JvmAnalysisFlags.strictMetadataVersionSemantics] = strictMetadataVersionSemantics
