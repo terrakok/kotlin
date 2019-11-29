@@ -73,6 +73,7 @@ class Psi2IrTranslator(
         val moduleGenerator = ModuleGenerator(context)
         val irModule = moduleGenerator.generateModuleFragmentWithoutDependencies(ktFiles)
 
+        irModule.patchDeclarationParents()
         moduleGenerator.generateUnboundSymbolsAsDependencies(irProviders)
         irModule.patchDeclarationParents()
         postprocess(context, irModule)
