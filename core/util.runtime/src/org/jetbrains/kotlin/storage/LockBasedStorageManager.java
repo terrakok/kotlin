@@ -88,7 +88,7 @@ public class LockBasedStorageManager implements StorageManager {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + "@" + Integer.toHexString(hashCode()) + " (" + debugText + ")";
+        return getClass().getSimpleName() + "@" + Integer.toHexString(hashCode()) + " " + lock + " (" + debugText + ")";
     }
 
     public LockBasedStorageManager replaceExceptionHandling(
