@@ -132,7 +132,7 @@ private fun extractLambdaInfoFromFunctionalType(expectedType: UnwrappedType?, ar
 private fun extractLambdaParameters(expectedType: UnwrappedType, argument: LambdaKotlinCallArgument): List<UnwrappedType> {
     val parametersTypes = argument.parametersTypes
     val expectedParameters = expectedType.getValueParameterTypesFromFunctionType()
-    if (parametersTypes == null) {
+    if (parametersTypes == null || parametersTypes.size != expectedParameters.size) {
         return expectedParameters.map { it.type.unwrap() }
     }
 
