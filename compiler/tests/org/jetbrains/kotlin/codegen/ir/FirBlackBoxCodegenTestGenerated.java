@@ -16821,6 +16821,11 @@ public class FirBlackBoxCodegenTestGenerated extends AbstractFirBlackBoxCodegenT
             runTest("compiler/testData/codegen/box/polymorphicSignature/invokeExactWithInlineClass.kt");
         }
 
+        @TestMetadata("nullArgument.kt")
+        public void testNullArgument() throws Exception {
+            runTest("compiler/testData/codegen/box/polymorphicSignature/nullArgument.kt");
+        }
+
         @TestMetadata("varargOfObjects_after.kt")
         public void testVarargOfObjects_after() throws Exception {
             runTest("compiler/testData/codegen/box/polymorphicSignature/varargOfObjects_after.kt");
@@ -16829,6 +16834,11 @@ public class FirBlackBoxCodegenTestGenerated extends AbstractFirBlackBoxCodegenT
         @TestMetadata("varargOfObjects_before.kt")
         public void testVarargOfObjects_before() throws Exception {
             runTest("compiler/testData/codegen/box/polymorphicSignature/varargOfObjects_before.kt");
+        }
+
+        @TestMetadata("voidReturnType.kt")
+        public void testVoidReturnType() throws Exception {
+            runTest("compiler/testData/codegen/box/polymorphicSignature/voidReturnType.kt");
         }
     }
 
