@@ -8,10 +8,20 @@ plugins {
 
 val builtinsSrc = fileFrom(rootDir, "core", "builtins", "src")
 val builtinsNative = fileFrom(rootDir, "core", "builtins", "native")
+val kotlinReflect = fileFrom(rootDir, "libraries/stdlib/jvm/src/kotlin/reflect")
+val builtinsCherryPicked = fileFrom(buildDir, "src")
+
+val prepareSources by tasks.registering(Copy::class) {
+    from(kotlinReflect) {
+        include("KFunction.kt")
+    }
+    into(builtinsCherryPicked)
+}
 
 val serialize by tasks.registering(NoDebugJavaExec::class) {
+    dependsOn(prepareSources)
     val outDir = "$buildDir/$name"
-    val inDirs = arrayOf(builtinsSrc, builtinsNative)
+    val inDirs = arrayOf(builtinsSrc, builtinsNative, builtinsCherryPicked)
     inDirs.forEach { inputs.dir(it) }
     outputs.dir(outDir)
 

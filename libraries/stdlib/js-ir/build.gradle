@@ -52,6 +52,9 @@ task prepareBuiltinsSources(type: Sync) {
     from("${originalBuiltinsDir}/src/kotlin/") {
         exclude "ArrayIntrinsics.kt"  // Used only for JVM
     }
+    from("${projectDir}/../jvm/src/kotlin/") {
+        include "reflect/**/*.kt"
+    }
     into builtinsSrcDir
 }
 
