@@ -18,8 +18,10 @@ abstract class AbstractCompileKotlinAgainstKlibTest : AbstractBlackBoxCodegenTes
     override fun getBackend() = TargetBackend.JVM_IR
 
     override fun doMultiFileTest(wholeFile: File, files: List<TestFile>) {
+        // TODO: Compile Klib form sources, instead of storing it as a binary.
         kLibName = wholeFile.toString().removeSuffix(".kt") + ".klib"
-        super.doMultiFileTest(wholeFile, files);
+        // All files but last are Klib's sources.
+        super.doMultiFileTest(wholeFile, listOf(files.last()));
     }
 
     override fun updateConfiguration(configuration: CompilerConfiguration) {
